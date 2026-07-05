@@ -1,0 +1,47 @@
+{
+  "version": "1.0",
+  "source": "negbit.com \u2014 domain half-life taxonomy v1 (calibrated estimates, community-revisable)",
+  "half_life_days": {
+    "News & current events": {
+      "Breaking news": 1,
+      "News analysis": 14,
+      "Market data & prices": 3
+    },
+    "AI & software": {
+      "AI model & API docs": 45,
+      "Frameworks & libraries": 90,
+      "Agent patterns & architecture": 150,
+      "Programming fundamentals": 1095
+    },
+    "Science": {
+      "Research frontier (preprints)": 120,
+      "Established theory": 3650,
+      "Mathematics": 7300
+    },
+    "Business": {
+      "Market intelligence": 30,
+      "Company profiles": 90,
+      "Strategy frameworks": 1095,
+      "Business regulation": 365
+    },
+    "Legal": {
+      "Case law": 730,
+      "Statutes": 1825,
+      "Compliance guides": 365
+    },
+    "Health": {
+      "Clinical guidelines": 545,
+      "Drug information": 365,
+      "Foundational physiology": 3650
+    },
+    "Timeless knowledge": {
+      "History": 7300,
+      "Cooking, crafts & know-how": 5475,
+      "Languages": 3650
+    },
+    "Products & commerce": {
+      "Specs & pricing": 14,
+      "Reviews & comparisons": 90
+    }
+  }
+}
