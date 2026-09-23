@@ -1,5 +1,10 @@
 # The Negbit Spec
 
+> **Fork note (Orkid Labs):** this is a CC BY-SA fork of
+> [`ag3ntlab-ai/negbit`](https://github.com/ag3ntlab-ai/negbit)
+> carrying a prior-art annotation the original omits — see
+> [`PRIOR-ART.md`](PRIOR-ART.md). Upstream content is unmodified.
+
 **An open quotation model for pre-processed knowledge bundles in machine-to-machine markets.**
 
 Version 1.0 · July 2026 · [negbit.com](https://negbit.com) · Nicolas Limare, ag3ntlab
