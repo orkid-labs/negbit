@@ -2,8 +2,9 @@
 
 > **Fork note (Orkid Labs):** this is a CC BY-SA fork of
 > [`ag3ntlab-ai/negbit`](https://github.com/ag3ntlab-ai/negbit)
-> carrying a prior-art annotation the original omits — see
-> [`PRIOR-ART.md`](PRIOR-ART.md). Upstream content is unmodified.
+> carrying a prior-art annotation and a corrected quotation formula —
+> see [`PRIOR-ART.md`](PRIOR-ART.md). All changes are marked inline.
+
 
 **An open quotation model for pre-processed knowledge bundles in machine-to-machine markets.**
 
@@ -26,10 +27,19 @@ The core claim of the model: **the fair price of a bundle is the processing cost
 The quote for a bundle of size $S$ tokens, age $a$ days, in a domain with half-life $t_{1/2}$ days:
 
 $$
-P^\* \;=\; \beta \cdot \min\!\big[\,\Delta \mathrm{EVSI},\; C_{\mathrm{avoided}}\,\big] \cdot 2^{-a/t_{1/2}}
+P^\* \;=\; C_{\mathrm{prod}} \;+\; \beta\cdot\Big(\, \min\!\big[\,\Delta \mathrm{EVSI},\; C_{\mathrm{avoided}}\,\big] \cdot 2^{-a/t_{1/2}} \;-\; C_{\mathrm{prod}} \,\Big)
 $$
 
-with a floor at the seller's amortized production cost per expected sale.
+quoted iff $\min[\Delta\mathrm{EVSI},\,C_{\mathrm{avoided}}]\cdot 2^{-a/t_{1/2}} \geq C_{\mathrm{prod}}$; below that bound the market does not clear and no quote exists.
+
+> **Fork correction (Orkid Labs):** the upstream formula priced
+> $\beta\cdot\min[\cdot]\cdot 2^{-a/t_{1/2}}$ — the bargaining weight
+> applied to capped *value* rather than to *surplus* above the
+> seller's disagreement point, with a separate "floor" clause bolted
+> on. Nash bargaining gives production cost $C_{\mathrm{prod}}$ as
+> the disagreement point directly; upstream's form is recovered only
+> at $C_{\mathrm{prod}}=0$, i.e. when no refinement work is priced.
+> See `PRIOR-ART.md` §E1–E3.
 
 **Terms:**
 
@@ -38,6 +48,7 @@ with a floor at the seller's amortized production cost per expected sale.
 | $C_{\mathrm{avoided}}$ | The processing cost the buyer skips by taking the bundle instead of doing the refinement work itself (expanded in §3) |
 | $\Delta \mathrm{EVSI}$ | The buyer's decision-theoretic value of the information (expected value of sample information); the cap that prevents pricing above what the answer is worth [1, 2] |
 | $\beta$ | Bargaining weight, the seller's share of the surplus; $\beta = 1/2$ is the symmetric Nash split [21] |
+| $C_{\mathrm{prod}}$ | Seller's amortized production cost per expected sale — the disagreement point (added in this fork; see `PRIOR-ART.md` §E1) |
 | $2^{-a/t_{1/2}}$ | Freshness decay: the bundle's market value halves every domain half-life (see §4) |
 
 ## 3. The avoided cost
