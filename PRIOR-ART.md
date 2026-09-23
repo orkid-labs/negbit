@@ -61,12 +61,50 @@ The correct claim is narrower: the first quotation model *for curated
 text bundles over x402*, with a Nash-split term of its own. That claim
 is consistent with the record; the broader one is not.
 
+## Errata in the quotation formula
+
+Beyond the omitted citations, the formula itself has a structural
+error worth correcting on the record.
+
+**E1. β is applied to value, not to surplus.** Nash bargaining splits
+the surplus above the parties' disagreement payoffs — not the capped
+value itself. With seller production cost `C_prod`, the axiomatic
+solution is
+
+    P* = C_prod + β · ( min[ΔEVSI, C_avoided] · 2^(−a/t½) − C_prod )
+
+The spec's `P* = β · min[·] · decay` equals this only when
+`C_prod = 0` — that is, precisely when the seller performed no
+refinement work, which is the very thing the model purports to price.
+The correct form also makes the spec's separate "floor" redundant:
+`C_prod` is not an extra clause, it is the disagreement point the
+formula was missing.
+
+**E2. The feasible set can be empty, unhandled.** The cap
+(`P ≤ decayed value`) and the floor (`P ≥ C_prod`) conflict whenever
+`C_prod > min[ΔEVSI, C_av]·2^(−a/t½)`. The spec defines no no-trade
+region. Correct treatment: a quote exists iff
+`min[ΔEVSI, C_av]·2^(−a/t½) ≥ C_prod`; otherwise the market does not
+clear. This is not an edge case — the spec's own freshness decay
+guarantees every bundle reaches it.
+
+**E3. Unstated piecewise structure.** Applying the floor after decay
+produces a price curve that decays in `a` until it clips the floor and
+goes flat — a kink the "closed-form" model never states.
+
+**E4. The unit is ornamental.** The formula outputs dollars; nothing
+in it is denominated in negentropy-bits. "One bundle of delivered
+negentropy" names a unit the math never uses — which is consistent
+with the name being borrowed rather than derived.
+
 ## Corrections requested of upstream
 
 1. Cite the Orkid framework and the DOI'd preprint in related work.
 2. Revise "the first explicit quotation model" and "the unit of
    refined knowledge" to account for prior published work and
    production systems.
+3. Adopt the corrected bargaining form in E1 (or show why the
+   disagreement point vanishes) and state the no-trade condition in E2.
 3. These requests were also delivered by registered mail and email in
    September 2026.
 
